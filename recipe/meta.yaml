@@ -16,6 +16,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -37,12 +41,12 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-gmp >=0.5_8
+    - r-gmp >=0.6_1
     - gmp
     - mpfr
   run:
     - r-base
-    - r-gmp >=0.5_8
+    - r-gmp >=0.6_1
 
 test:
   commands:
